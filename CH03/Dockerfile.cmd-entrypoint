@@ -1,0 +1,3 @@
+FROM fedora
+ENTRYPOINT ["curl"]
+CMD ["http://localhost:8080/"]
