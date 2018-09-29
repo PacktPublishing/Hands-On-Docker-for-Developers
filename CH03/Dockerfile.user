@@ -1,0 +1,2 @@
+FROM fedora
+USER mario 1000

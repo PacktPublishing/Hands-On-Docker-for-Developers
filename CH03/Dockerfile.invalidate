@@ -1,0 +1,5 @@
+FROM fedora
+COPY /src/ /
+RUN dnf -y update && dnf install -y java-devel
+RUN javac HelloWorld.java
+CMD java HelloWorld
