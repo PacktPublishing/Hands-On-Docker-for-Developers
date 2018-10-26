@@ -1,0 +1,8 @@
+FROM fedora:28
+RUN dnf -y update && \
+    dnf -y install httpd && \
+    dnf -y clean all && \
+    rm /etc/httpd/conf.d/welcome.conf
+EXPOSE 80
+ENTRYPOINT ["httpd"]
+CMD ["-DFOREGROUND"]

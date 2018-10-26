@@ -1,0 +1,3 @@
+FROM scratch
+
+CMD /usr/local/apache2/bin/httpd -DFOREGROUND

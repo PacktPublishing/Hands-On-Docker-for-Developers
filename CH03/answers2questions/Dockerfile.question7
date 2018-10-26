@@ -1,0 +1,18 @@
+FROM fedora:28
+
+RUN dnf -y install apr \
+                   apr-devel \
+                   apr-util \
+                   apr-util-devel \
+                   gcc \
+                   make \
+                   pcre \
+                   pcre-devel \
+                   redhat-rpm-config
+
+RUN curl -sSL -o /tmp/httpd.tar.gz http://www-eu.apache.org/dist/httpd/httpd-2.4.35.tar.gz && \
+    tar xzf /tmp/httpd.tar.gz -C /tmp/
+
+RUN cd /tmp/httpd-2.4.35 && ./configure && make && make install
+
+CMD /usr/local/apache2/bin/httpd -DFOREGROUND

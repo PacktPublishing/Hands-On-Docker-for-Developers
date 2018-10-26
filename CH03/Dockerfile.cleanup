@@ -1,0 +1,4 @@
+FROM fedora
+
+RUN yum -y install openssl java sudo
+RUN yum clean all 
