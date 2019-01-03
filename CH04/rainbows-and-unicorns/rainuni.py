@@ -2,7 +2,7 @@ from flask import render_template, Flask
 import random
 app = Flask(__name__)
 
-kinds = {1: 'Rainbow', 2: 'Unicorn', 3: 'Rainbow Unicorn'}
+kinds = {1: chr(0x1F308), 2: chr(0x1F984), 3: chr(0x1F308)+chr(0x1F984)}
 start_over = False
 retries_num = 0
 

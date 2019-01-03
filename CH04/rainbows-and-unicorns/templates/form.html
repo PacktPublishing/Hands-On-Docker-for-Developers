@@ -1,12 +1,12 @@
 <!doctype html>
 <title>Rainbows and Unicorns</title>
-{% if kind == "Unicorn" %}
-  <h1>Just a Unicorn. Try Again</h1>
-{% elif kind == "Rainbow" %}
-  <h1>Just a Rainbow. Try Again</h1>
-{% elif kind == "Rainbow Unicorn" %}
-  <h1>A Rainbow Unicorn! You won in {{ retries_num }} retries!</h1>
+{% if kind == '🦄' %}
+  <h1>Just a Unicorn 🦄. Try Again</h1>
+{% elif kind == '🌈' %}
+  <h1>Just a Rainbow 🌈. Try Again</h1>
+{% elif kind == '🌈🦄' %}
+  <h1>A Rainbow Unicorn 🌈🦄! You won in {{ retries_num }} retries!</h1>
   {% set retries_num = 0 %}
 {% else %}
-  <h1>There was an error: {{animal}}. What kind of animal is that?</h1>
+  <h1>There was an error: {{kind}}. What kind of animal is that?</h1>
 {% endif %}
