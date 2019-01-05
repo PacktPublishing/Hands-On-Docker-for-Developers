@@ -1,5 +1,0 @@
-[
-  "tests/test_app.py::test_get_rainbow",
-  "tests/test_app.py::test_get_unicorn",
-  "tests/test_app.py::test_get_rainbowunicorn"
-]

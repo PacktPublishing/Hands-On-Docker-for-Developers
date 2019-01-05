@@ -19,7 +19,7 @@ def hello_world():
     else:
         retries_num += 1
     kind=give_me_a_rainbow_unicorn()
-    if kind == 'Rainbow Unicorn':
+    if kind == chr(0x1F308)+chr(0x1F984):
         start_over = True
     else:
         start_over = False
