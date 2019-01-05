@@ -3,3 +3,6 @@ CH02/linuxkit-cmdline
 CH02/linuxkit-kernel
 CH02/linuxkit-state/
 .vagrant
+.vscode/
+__pycache__/
+.pytest_cache/
