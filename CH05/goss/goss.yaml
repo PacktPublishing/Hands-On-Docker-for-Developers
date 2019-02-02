@@ -1,0 +1,7 @@
+http:
+  http://localhost:
+    status: 200
+    allow-insecure: true
+    no-follow-redirects: false
+    timeout: 1000
+    body: ["hello"] # Check http response content for these patterns
