@@ -1,7 +1,15 @@
+port:
+  tcp:80:
+    listening: true
+    ip:
+    - 0.0.0.0
+process:
+  httpd:
+    running: false
 http:
   http://localhost:
     status: 200
-    allow-insecure: true
+    allow-insecure: false
     no-follow-redirects: false
-    timeout: 1000
-    body: ["hello"] # Check http response content for these patterns
+    timeout: 5000
+    body: []
