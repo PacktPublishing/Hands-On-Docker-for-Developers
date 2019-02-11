@@ -1,4 +1,4 @@
-//  Source https://golang.org/doc/articles/wiki/
+// Source https://golang.org/doc/articles/wiki/
 package main
 
 import (

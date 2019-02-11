@@ -4,8 +4,6 @@
 FROM golang AS builder
 WORKDIR $GOPATH/src/httpd-go
 COPY . .
-# Using go get.
-# RUN go get -d -v
 # Build the binary.
 RUN CGO_ENABLED=0 go build -a -installsuffix cgo -o /go/bin/httpd-go
 ############################
