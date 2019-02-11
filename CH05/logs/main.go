@@ -8,12 +8,14 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-    fmt.Print("Olleh")
-    fmt.Fprintf(w, "Hi there, I hate %s!", r.URL.Path[1:])
+    fmt.Printf("\n===========\nNew Request\n===========\n")
+    fmt.Printf("- Method: %s\n", r.Method)
+    fmt.Printf("- URL: %s\n", r.URL)
+    fmt.Printf("- Header %s\n", r.Header)
+    fmt.Printf("- Body: %s\n", r.Body)
 }
 
 func main() {
-    fmt.Print("Hello")
     http.HandleFunc("/", handler)
     log.Fatal(http.ListenAndServe(":8080", nil))
 }

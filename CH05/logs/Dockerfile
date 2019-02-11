@@ -7,7 +7,7 @@ COPY . .
 # Using go get.
 # RUN go get -d -v
 # Build the binary.
-RUN GOOS=linux GOARCH=amd64 go build  -a -tags netgo -ldflags="-w -s" -o /go/bin/httpd-go
+RUN CGO_ENABLED=0 go build -a -installsuffix cgo -o /go/bin/httpd-go
 ############################
 # STEP 2 build a small image
 ############################
