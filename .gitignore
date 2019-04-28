@@ -6,3 +6,4 @@ CH02/linuxkit-state/
 .vscode/
 __pycache__/
 .pytest_cache/
+bin/
