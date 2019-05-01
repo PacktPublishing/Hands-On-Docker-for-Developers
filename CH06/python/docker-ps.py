@@ -3,6 +3,9 @@
 import docker
 client = docker.from_env()
 
-containers = client.containers.list()
-for container in containers:
-    print(container.short_id, container.attrs['Config']['Image'])
+img = 'httpd'
+
+container = client.containers.run(img, detach=True, publish_all_ports=True)
+print('Container ID: ' + container.id)
+container.reload()
+print('Exposed port: ' + container.attrs['NetworkSettings']['Ports']['80/tcp'][0]['HostPort'])
