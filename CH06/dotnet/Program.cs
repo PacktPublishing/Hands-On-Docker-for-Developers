@@ -16,16 +16,15 @@ namespace dockerPs
             DockerClient client = new DockerClientConfiguration(
                 new Uri("unix:///var/run/docker.sock"))
                 .CreateClient();
-            
-            IList<ContainerListResponse> containers = await NewMethod(client);
 
+            IList<ContainerListResponse> containers = await GetContainers(client);
             foreach (var container in containers)
             {
-                Console.WriteLine("{0} {1}", container.ID, container.Image);
+                Console.WriteLine("{0} {1} {2}", container.ID, container.Image, container.Status);
             }
         }
 
-        private static async Task<IList<ContainerListResponse>> NewMethod(DockerClient client)
+        private static async Task<IList<ContainerListResponse>> GetContainers(DockerClient client)
         {
             return await client.Containers.ListContainersAsync(
                             new ContainersListParameters()

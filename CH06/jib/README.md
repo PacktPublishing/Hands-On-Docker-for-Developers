@@ -1,33 +1,35 @@
-# Build a SpringBoot container with Jib
+# Build a SpringBoot image with Jib
 
-## Build it with Docker
+## Build it with Docker (maven dependency plugin version) - fabric8
 
 ```bash
-$ mvn install dockerfile:build && \
-(docker rm -f springboot-normal || echo "container not found") && \
-docker run -d -p 8080:8080 --name springboot-normal mariolet/gs-spring-boot
+$ mvn -f pom.xml install
+
+$ (docker rm -f springboot-mdp || echo "container not found") && \
+mvn package dockerfile:build && \
+docker run -d -p 8080:8080 --name springboot-mdp mariolet/gs-spring-boot:mdp && \
+sleep 10 && curl localhost:8080
 (...)
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 17.138 s
-[INFO] Finished at: 2019-05-01T01:36:39+02:00
-[INFO] Final Memory: 52M/399M
+[INFO] Total time:  8.163 s
+[INFO] Finished at: 2019-05-03T23:24:13+02:00
 [INFO] ------------------------------------------------------------------------
 ```
 
 ## Build it with Jib
 
 ```bash
-mvn compile jib:dockerBuild -Dimage=mariolet/gs-spring-boot-jib && \
-(docker rm -f springboot-jib || echo "container not found") && \
-docker run -d -p 8081:8080 --name springboot-jib mariolet/gs-spring-boot-jib
+$ (docker rm -f springboot-jib || echo "container not found") && \
+mvn -f pom.jib.xml compile jib:dockerBuild -Dimage=mariolet/gs-spring-boot-jib && \
+docker run -d -p 8080:8080 --name springboot-jib mariolet/gs-spring-boot-jib && \
+sleep 10 && curl localhost:8080
 (...)
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time: 8.114 s
-[INFO] Finished at: 2019-05-01T01:37:08+02:00
-[INFO] Final Memory: 32M/284M
+[INFO] Total time:  4.802 s
+[INFO] Finished at: 2019-05-03T23:26:19+02:00
 [INFO] ------------------------------------------------------------------------
 ```
