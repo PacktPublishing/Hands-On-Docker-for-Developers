@@ -37,7 +37,8 @@
                 <artifactId>dockerfile-maven-plugin</artifactId>
                 <version>1.4.9</version>
                 <configuration>
-                    <repository>${docker.image.prefix}/${project.artifactId}</repository>
+			<repository>${docker.image.prefix}/${project.artifactId}</repository>
+			<tag>mdp</tag>
                 </configuration>
             </plugin>
             <plugin>
